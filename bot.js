@@ -15,7 +15,7 @@ function respond() {
     postMessage(cool());
     this.res.end();
   } 
-  else if(request.text && (botRegexDL.test(request.text) || botRegex2.test(request.text)) {
+  else if(request.text && (botRegexDL.test(request.text) || botRegex2.test(request.text) ||botRegex4.test(request.text)||botRegex3.test(request.text)) {
     this.res.writeHead(200);
     postMessage("http://www.suicidepreventionlifeline.org/");
     this.res.end();
