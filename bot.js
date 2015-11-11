@@ -5,7 +5,7 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/cool guy/;  botRegexDL = /^\kill yourself/i;
+      botRegex = /^\/cool guy/;  botRegexDL = /^\kill yourself/i; botRegex2 = botODB = /(.*\s+)(.*kill yourself)(\s+.*)/i
   var teamAb = ["NE","NO","ARI","PHI","CLE","TEN","OAK","DAL","IND","SEA","CIN","PIT","JAC"
                 ,"BAL","SD","DEN","MIN","ATL","KC","NYG","GB","DET","HOU","STL","CHI","CAR",
                 "MIA","BUF","SF","WAS","NYJ","TB"]
@@ -14,7 +14,7 @@ function respond() {
     postMessage(cool());
     this.res.end();
   } 
-  else if(request.text && botRegexDL.test(request.text)) {
+  else if(request.text && botRegexDL.test(request.text) || botRegex2.test(request.text) {
     this.res.writeHead(200);
     postMessage("http://www.suicidepreventionlifeline.org/");
     this.res.end();
